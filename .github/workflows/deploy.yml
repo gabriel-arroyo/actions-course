@@ -34,14 +34,14 @@ jobs:
       - name: Build Project
         run: npm run build
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: dist-files
           path: |
             dist
             package.json
   deploy:
-    needs: test
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Deploy
